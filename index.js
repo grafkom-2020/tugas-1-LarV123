@@ -19,7 +19,22 @@ function main() {
   let colors = [];
   addCube(vertices, colors, -0.2, 0, 0, 0.3, 1, 0.15, colorYellow);
   addCube(vertices, colors, 0.15, 0.145, 0, 0.4, 0.695, 0.03, colorWhite);
-  addCube(vertices, colors, 0.2, -0.35, 0, 0.5, 0.3, 0.1, colorGrey);
+  addCube(vertices, colors, 0.2+0.125+0.0625, -0.2375, 0, 0.125, 0.075, 0.1, colorGrey);
+  addCube(vertices, colors, 0.2+0.125-0.0625, -0.2375, 0, 0.125, 0.075, 0.11, colorGrey);
+  addCube(vertices, colors, 0.2-0.125+0.0625, -0.2375, 0, 0.125, 0.075, 0.09, colorGrey);
+  addCube(vertices, colors, 0.2-0.125-0.0625, -0.2375, 0, 0.125, 0.075, 0.1, colorGrey);
+  addCube(vertices, colors, 0.2+0.125+0.0625, -0.3125, 0, 0.125, 0.075, 0.11, colorGrey);
+  addCube(vertices, colors, 0.2+0.125-0.0625, -0.3125, 0, 0.125, 0.075, 0.12, colorGrey);
+  addCube(vertices, colors, 0.2-0.125+0.0625, -0.3125, 0, 0.125, 0.075, 0.1, colorGrey);
+  addCube(vertices, colors, 0.2-0.125-0.0625, -0.3125, 0, 0.125, 0.075, 0.11, colorGrey);
+  addCube(vertices, colors, 0.2+0.125+0.0625, -0.3875, 0, 0.125, 0.075, 0.12, colorGrey);
+  addCube(vertices, colors, 0.2+0.125-0.0625, -0.3875, 0, 0.125, 0.075, 0.09, colorGrey);
+  addCube(vertices, colors, 0.2-0.125+0.0625, -0.3875, 0, 0.125, 0.075, 0.1, colorGrey);
+  addCube(vertices, colors, 0.2-0.125-0.0625, -0.3875, 0, 0.125, 0.075, 0.12, colorGrey);
+  addCube(vertices, colors, 0.2+0.125+0.0625, -0.4625, 0, 0.125, 0.075, 0.09, colorGrey);
+  addCube(vertices, colors, 0.2+0.125-0.0625, -0.4625, 0, 0.125, 0.075, 0.1, colorGrey);
+  addCube(vertices, colors, 0.2-0.125+0.0625, -0.4625, 0, 0.125, 0.075, 0.11, colorGrey);
+  addCube(vertices, colors, 0.2-0.125-0.0625, -0.4625, 0, 0.125, 0.075, 0.12, colorGrey);
   addCube(vertices, colors, 0.35, 0.15, 0, 0.05, 0.7, 0.05, colorDarkGrey);
   addCube(vertices, colors, 0.15, 0.475, 0, 0.4, 0.05, 0.05, colorDarkGrey);
 
@@ -101,7 +116,7 @@ function main() {
 			resized = false;
     }
     
-    zRotation += 0.5;
+    zRotation -= 0.5;
     if(zRotation >= 360){
       zRotation -= 360;
     }
