@@ -17,29 +17,30 @@ function main() {
 
   // Inisiasi verteks kubus
   let vertices = [];
+  let normals = [];
   let colors = [];
-  addCube(vertices, colors, -0.2, 0, 0, 0.3, 1, 0.15, colorYellow);
-  addCube(vertices, colors, 0.15, 0.145, 0, 0.4, 0.695, 0.03, colorWhite);
-  addCube(vertices, colors, 0.2+0.125+0.0625, -0.2375, 0, 0.125, 0.075, 0.1, colorGrey);
-  addCube(vertices, colors, 0.2+0.125-0.0625, -0.2375, 0, 0.125, 0.075, 0.11, colorGrey);
-  addCube(vertices, colors, 0.2-0.125+0.0625, -0.2375, 0, 0.125, 0.075, 0.09, colorGrey);
-  addCube(vertices, colors, 0.2-0.125-0.0625, -0.2375, 0, 0.125, 0.075, 0.1, colorGrey);
-  addCube(vertices, colors, 0.2+0.125+0.0625, -0.3125, 0, 0.125, 0.075, 0.11, colorGrey);
-  addCube(vertices, colors, 0.2+0.125-0.0625, -0.3125, 0, 0.125, 0.075, 0.12, colorGrey);
-  addCube(vertices, colors, 0.2-0.125+0.0625, -0.3125, 0, 0.125, 0.075, 0.1, colorGrey);
-  addCube(vertices, colors, 0.2-0.125-0.0625, -0.3125, 0, 0.125, 0.075, 0.11, colorGrey);
-  addCube(vertices, colors, 0.2+0.125+0.0625, -0.3875, 0, 0.125, 0.075, 0.12, colorGrey);
-  addCube(vertices, colors, 0.2+0.125-0.0625, -0.3875, 0, 0.125, 0.075, 0.09, colorGrey);
-  addCube(vertices, colors, 0.2-0.125+0.0625, -0.3875, 0, 0.125, 0.075, 0.1, colorGrey);
-  addCube(vertices, colors, 0.2-0.125-0.0625, -0.3875, 0, 0.125, 0.075, 0.12, colorGrey);
-  addCube(vertices, colors, 0.2+0.125+0.0625, -0.4625, 0, 0.125, 0.075, 0.09, colorGrey);
-  addCube(vertices, colors, 0.2+0.125-0.0625, -0.4625, 0, 0.125, 0.075, 0.1, colorGrey);
-  addCube(vertices, colors, 0.2-0.125+0.0625, -0.4625, 0, 0.125, 0.075, 0.11, colorGrey);
-  addCube(vertices, colors, 0.2-0.125-0.0625, -0.4625, 0, 0.125, 0.075, 0.12, colorGrey);
-  addCube(vertices, colors, 0.35, 0.15, 0, 0.05, 0.7, 0.05, colorDarkGrey);
-  addCube(vertices, colors, 0.15, 0.475, 0, 0.4, 0.05, 0.05, colorDarkGrey);
 
-  addCube(vertices, colors, 0, -1, 0, 10, 0, 10, colorPlane);
+  addCube(vertices, colors, normals, -0.2, 0, 0, 0.3, 1, 0.15, colorYellow);
+  addCube(vertices, colors, normals, 0.15, 0.145, 0, 0.4, 0.695, 0.03, colorWhite);
+  addCube(vertices, colors, normals, 0.2+0.125+0.0625, -0.2375, 0, 0.125, 0.075, 0.1, colorGrey);
+  addCube(vertices, colors, normals, 0.2+0.125-0.0625, -0.2375, 0, 0.125, 0.075, 0.11, colorGrey);
+  addCube(vertices, colors, normals, 0.2-0.125+0.0625, -0.2375, 0, 0.125, 0.075, 0.09, colorGrey);
+  addCube(vertices, colors, normals, 0.2-0.125-0.0625, -0.2375, 0, 0.125, 0.075, 0.1, colorGrey);
+  addCube(vertices, colors, normals, 0.2+0.125+0.0625, -0.3125, 0, 0.125, 0.075, 0.11, colorGrey);
+  addCube(vertices, colors, normals, 0.2+0.125-0.0625, -0.3125, 0, 0.125, 0.075, 0.12, colorGrey);
+  addCube(vertices, colors, normals, 0.2-0.125+0.0625, -0.3125, 0, 0.125, 0.075, 0.1, colorGrey);
+  addCube(vertices, colors, normals, 0.2-0.125-0.0625, -0.3125, 0, 0.125, 0.075, 0.11, colorGrey);
+  addCube(vertices, colors, normals, 0.2+0.125+0.0625, -0.3875, 0, 0.125, 0.075, 0.12, colorGrey);
+  addCube(vertices, colors, normals, 0.2+0.125-0.0625, -0.3875, 0, 0.125, 0.075, 0.09, colorGrey);
+  addCube(vertices, colors, normals, 0.2-0.125+0.0625, -0.3875, 0, 0.125, 0.075, 0.1, colorGrey);
+  addCube(vertices, colors, normals, 0.2-0.125-0.0625, -0.3875, 0, 0.125, 0.075, 0.12, colorGrey);
+  addCube(vertices, colors, normals, 0.2+0.125+0.0625, -0.4625, 0, 0.125, 0.075, 0.09, colorGrey);
+  addCube(vertices, colors, normals, 0.2+0.125-0.0625, -0.4625, 0, 0.125, 0.075, 0.1, colorGrey);
+  addCube(vertices, colors, normals, 0.2-0.125+0.0625, -0.4625, 0, 0.125, 0.075, 0.11, colorGrey);
+  addCube(vertices, colors, normals, 0.2-0.125-0.0625, -0.4625, 0, 0.125, 0.075, 0.12, colorGrey);
+  addCube(vertices, colors, normals, 0.35, 0.15, 0, 0.05, 0.7, 0.05, colorDarkGrey);
+  addCube(vertices, colors, normals, 0.15, 0.475, 0, 0.4, 0.05, 0.05, colorDarkGrey);
+  addCube(vertices, colors, normals, 0, -1, 0, 10, 1, 10, colorPlane);
 
 
   // Inisiasi VBO (Vertex Buffer Object)
@@ -51,6 +52,16 @@ function main() {
   let rightVertexBuffer = rightGL.createBuffer();
   rightGL.bindBuffer(rightGL.ARRAY_BUFFER, rightVertexBuffer);
   rightGL.bufferData(rightGL.ARRAY_BUFFER, new Float32Array(vertices), rightGL.STATIC_DRAW);
+  rightGL.bindBuffer(rightGL.ARRAY_BUFFER, null);
+
+  let leftNormalBuffer = leftGL.createBuffer();
+  leftGL.bindBuffer(leftGL.ARRAY_BUFFER, leftNormalBuffer);
+  leftGL.bufferData(leftGL.ARRAY_BUFFER, new Float32Array(normals), leftGL.STATIC_DRAW);
+  leftGL.bindBuffer(leftGL.ARRAY_BUFFER, null);
+
+  let rightNormalBuffer = rightGL.createBuffer();
+  rightGL.bindBuffer(rightGL.ARRAY_BUFFER, rightNormalBuffer);
+  rightGL.bufferData(rightGL.ARRAY_BUFFER, new Float32Array(normals), rightGL.STATIC_DRAW);
   rightGL.bindBuffer(rightGL.ARRAY_BUFFER, null);
 
   let leftColorBuffer = leftGL.createBuffer();
@@ -100,8 +111,11 @@ function main() {
   // Pengikatan VBO dan pengarahan pointer atribut posisi dan warna
   setVertex(leftGL, leftShaderProgram, leftVertexBuffer, 3);
   setColors(leftGL, leftShaderProgram, leftColorBuffer);
+  setNormal(leftGL, leftShaderProgram, leftNormalBuffer);
   setVertex(rightGL, rightShaderProgram, rightVertexBuffer, 3);
   setColors(rightGL, rightShaderProgram, rightColorBuffer);
+  setNormal(rightGL, rightShaderProgram, rightNormalBuffer);
+
 
   let projectionMatrixLoc = rightGL.getUniformLocation(rightShaderProgram, "uProjectionMatrix");
   let projectionMatrix = createProjectionMatrix();
@@ -112,12 +126,19 @@ function main() {
   let xRotation = 0;
   let yRotation = 0;
 
+  let sunAngle = 0;
+
   // Persiapan tampilan layar dan mulai menggambar secara berulang (animasi)
   function render() {
     if (resized) {
 			leftGL.viewport(0, (leftGL.canvas.height - leftGL.canvas.width)/2, leftGL.canvas.width, leftGL.canvas.width);
 			rightGL.viewport(0, (leftGL.canvas.height - leftGL.canvas.width)/2, rightGL.canvas.width, rightGL.canvas.width);
 			resized = false;
+    }
+
+    sunAngle += 1;
+    if(sunAngle > 360){
+      sunAngle = 0;
     }
     
     // zRotation -= 0.5;
@@ -143,6 +164,10 @@ function main() {
     leftGL.uniformMatrix4fv(transformMatrixLoc, false, new Float32Array(transformMatrix));
     let colorAmbientLoc = leftGL.getUniformLocation(leftShaderProgram, 'uAmbientColor');
     leftGL.uniform3fv(colorAmbientLoc, [0.2, 0.2, 0.2]);
+    let LightColorLoc = leftGL.getUniformLocation(leftShaderProgram, 'uLightColor');
+    leftGL.uniform3fv(LightColorLoc, [1.0, 1.0, 1.0]);
+    let LightDirLoc = leftGL.getUniformLocation(leftShaderProgram, 'uLightDir');
+    leftGL.uniform3fv(LightDirLoc, normalize(sunDir(sunAngle)));
 
     transformMatrix = createMatrix4f();
     transformMatrix = translateMatrix(transformMatrix, 0, 0, 0);
@@ -153,6 +178,10 @@ function main() {
     rightGL.uniformMatrix4fv(transformMatrixLoc, false, new Float32Array(transformMatrix));
     colorAmbientLoc = rightGL.getUniformLocation(rightShaderProgram, 'uAmbientColor');
     rightGL.uniform3fv(colorAmbientLoc, [0.2, 0.2, 0.2]);
+    LightColorLoc = rightGL.getUniformLocation(rightShaderProgram, 'uLightColor');
+    rightGL.uniform3fv(LightColorLoc, [1.0, 1.0, 1.0]);
+    LightDirLoc = rightGL.getUniformLocation(rightShaderProgram, 'uLightDir');
+    rightGL.uniform3fv(LightDirLoc, normalize(sunDir(sunAngle)));
 
 
     leftGL.clear(leftGL.COLOR_BUFFER_BIT | leftGL.DEPTH_BUFFER_BIT);
@@ -171,36 +200,7 @@ function main() {
   render();
 }
 
-
-
-function addPlane(vertices, colors, x, y, z, width, height, color){
-  width = width/2;
-  height = height/2;
-
-  let planePoints = [
-    [x-width, y+height, z],
-    [x-width, y-height, z],
-    [x+width, y-height, z],
-    [x+width, y+height, z]
-  ];
-
-  function quad(a, b, c, d) {
-    var indices = [a, b, c, c, d, a];
-    for (var i=0; i<indices.length; i++) {
-      for (var j=0; j<3; j++) {
-        vertices.push(planePoints[indices[i]][j]);
-      }
-      for(let j=0; j<3; j++){
-        colors.push(color);
-      }
-    }
-  }
-
-  quad(1, 2, 3, 0);
-
-}
-
-function addCube(vertices, colors, x, y, z, width, height, length, color){
+function addCube(vertices, colors, normals, x, y, z, width, height, length, color){
 
   width = width/2;
   height = height/2;
@@ -217,25 +217,28 @@ function addCube(vertices, colors, x, y, z, width, height, length, color){
     [x + width, y + height, z - length]    // H, 7 
   ];
 
-  function quad(a, b, c, d) {
+  function quad(a, b, c, d, n) {
     var indices = [a, b, c, c, d, a];
     for (var i=0; i<indices.length; i++) {
       for (var j=0; j<3; j++) {
         vertices.push(cubePoints[indices[i]][j]);
-      }
-      for(let j=0; j<3; j++){
         colors.push(color[j]);
+        normals.push(normalize(n[j]));
       }
     }
   }
 
-  quad(1, 2, 3, 0); // Kubus depan
-  quad(2, 6, 7, 3); // Kubus kanan
-  quad(3, 7, 4, 0); // Kubus atas
-  quad(4, 5, 1, 0); // Kubus kiri
-  quad(5, 4, 7, 6); // Kubus belakang
-  quad(6, 2, 1, 5); // Kubus bawah
+  quad(1, 2, 3, 0, [ 0,  0,  1]); // Kubus depan
+  quad(2, 6, 7, 3, [ 1,  0,  0]); // Kubus kanan
+  quad(3, 7, 4, 0, [ 0,  1,  0]); // Kubus atas
+  quad(4, 5, 1, 0, [-1,  0,  0]); // Kubus kiri
+  quad(5, 4, 7, 6, [ 0,  0, -1]); // Kubus belakang
+  quad(6, 2, 1, 5, [ 0, -1,  0]); // Kubus bawah
   
+}
+
+function sunDir(angle){
+  return [Math.sin(angle * Math.PI / 180), Math.cos(angle * Math.PI / 180) , 0.5];
 }
 
 function setVertex(gl, program, buffer, numOfComponent){
@@ -250,6 +253,13 @@ function setColors(gl, program, buffer){
   let color = gl.getAttribLocation(program, "aColor");
   gl.vertexAttribPointer(color, 3, gl.FLOAT, false, 0, 0);
   gl.enableVertexAttribArray(color);
+}
+
+function setNormal(gl, program, buffer){
+  gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
+  let position = gl.getAttribLocation(program, "aNormal");
+  gl.vertexAttribPointer(position, 3, gl.FLOAT, false, 0, 0);
+  gl.enableVertexAttribArray(position);
 }
 
 function createProjectionMatrix(){
@@ -326,6 +336,14 @@ function rotateMatrix(mat, x, y, z){
   mat = rotateY(mat, y);
   mat = rotateZ(mat, z);
   return mat;
+}
+
+function normalize(vec){
+  let distance = vec[0] * vec[0] + vec[1] * vec[1] + vec[2] * vec[2];
+  vec[0] /= distance;
+  vec[1] /= distance;
+  vec[2] /= distance;
+  return vec;
 }
 
 function multiply(a, b) {
