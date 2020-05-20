@@ -13,6 +13,7 @@ function main() {
   let colorYellow = [0.92156862745 , 0.78823529411, 0.43529411764];
   let colorDarkGrey = [0.2, 0.2, 0.2];
   let colorWhite = [1.0, 1.0, 1.0];
+  let colorPlane = [0.02352941176, 0.12549019607, 0.38431372549];
 
   // Inisiasi verteks kubus
   let vertices = [];
@@ -37,6 +38,9 @@ function main() {
   addCube(vertices, colors, 0.2-0.125-0.0625, -0.4625, 0, 0.125, 0.075, 0.12, colorGrey);
   addCube(vertices, colors, 0.35, 0.15, 0, 0.05, 0.7, 0.05, colorDarkGrey);
   addCube(vertices, colors, 0.15, 0.475, 0, 0.4, 0.05, 0.05, colorDarkGrey);
+
+  addCube(vertices, colors, 0, -1, 0, 10, 0, 10, colorPlane);
+
 
   // Inisiasi VBO (Vertex Buffer Object)
   let leftVertexBuffer = leftGL.createBuffer();
@@ -161,20 +165,40 @@ function main() {
   render();
 }
 
+
+
+function addPlane(vertices, colors, x, y, z, width, height, color){
+  width = width/2;
+  height = height/2;
+
+  let planePoints = [
+    [x-width, y+height, z],
+    [x-width, y-height, z],
+    [x+width, y-height, z],
+    [x+width, y+height, z]
+  ];
+
+  function quad(a, b, c, d) {
+    var indices = [a, b, c, c, d, a];
+    for (var i=0; i<indices.length; i++) {
+      for (var j=0; j<3; j++) {
+        vertices.push(planePoints[indices[i]][j]);
+      }
+      for(let j=0; j<3; j++){
+        colors.push(color);
+      }
+    }
+  }
+
+  quad(1, 2, 3, 0);
+
+}
+
 function addCube(vertices, colors, x, y, z, width, height, length, color){
 
   width = width/2;
   height = height/2;
   length = length/2;
-
-  var colorOffset = [
-    0.0, 0.0, 0.0,    // depan
-    +0.1, +0.1, +0.1,    // kanan
-    +0.2, +0.2, +0.2,    // atas
-    +0.1, +0.1, +0.1,    // kiri
-    0, 0, 0,    // belakang
-    -0.2, -0.2, -0.2    // bawah
-];
 
   let cubePoints = [
     [x - width, y + height, z + length],   // A, 0
@@ -194,7 +218,7 @@ function addCube(vertices, colors, x, y, z, width, height, length, color){
         vertices.push(cubePoints[indices[i]][j]);
       }
       for(let j=0; j<3; j++){
-        colors.push(color[j] + colorOffset[(a-1) * 3+j]);
+        colors.push(color[j]);
       }
     }
   }
