@@ -2,6 +2,11 @@ let full = false;
 let resized = false;
 
 function main() {
+  listenTo(document);
+  addKeyToListen('ArrowUp');
+  addKeyToListen('ArrowRight');
+  addKeyToListen('ArrowLeft');
+  addKeyToListen('ArrowDown');
   // Inisiasi kanvas WebGL
   var leftCanvas = document.getElementById("leftCanvas");
   var rightCanvas = document.getElementById("rightCanvas");
@@ -40,7 +45,7 @@ function main() {
   addCube(vertices, colors, normals, 0.2-0.125-0.0625, -0.4625, 0, 0.125, 0.075, 0.12, colorGrey);
   addCube(vertices, colors, normals, 0.35, 0.15, 0, 0.05, 0.7, 0.05, colorDarkGrey);
   addCube(vertices, colors, normals, 0.15, 0.475, 0, 0.4, 0.05, 0.05, colorDarkGrey);
-  addCube(vertices, colors, normals, 0, -1, 0, 10, 1, 10, colorPlane);
+  addPlane(vertices, colors, normals, 0, -0.5, 0, 10, 0, 10, colorPlane);
 
 
   // Inisiasi VBO (Vertex Buffer Object)
@@ -128,6 +133,8 @@ function main() {
 
   let sunAngle = 0;
 
+  let playerX = 0, playerZ = 0;
+  let speed = 0.1;
   // Persiapan tampilan layar dan mulai menggambar secara berulang (animasi)
   function render() {
     if (resized) {
@@ -139,6 +146,22 @@ function main() {
     sunAngle += 1;
     if(sunAngle > 360){
       sunAngle = 0;
+    }
+
+    if(isKey('ArrowUp')){
+      playerZ += speed;
+    }
+
+    if(isKey('ArrowDown')){
+      playerZ -= speed;
+    }
+
+    if(isKey('ArrowRight')){
+      playerX -= speed;
+    }
+
+    if(isKey('ArrowLeft')){
+      playerX += speed;
     }
     
     // zRotation -= 0.5;
@@ -157,7 +180,7 @@ function main() {
     // }
 
     let transformMatrix = createMatrix4f();
-    transformMatrix = translateMatrix(transformMatrix, 0, -0.3, 0);
+    transformMatrix = translateMatrix(transformMatrix, playerX, -0.3, playerZ);
     transformMatrix = scaleMatrix(transformMatrix, 1, 1, 1);
     transformMatrix = rotateMatrix(transformMatrix, 0, 0, zRotation);
     let transformMatrixLoc = leftGL.getUniformLocation(leftShaderProgram, "uTransform");
@@ -170,7 +193,7 @@ function main() {
     leftGL.uniform3fv(LightDirLoc, normalize(sunDir(sunAngle)));
 
     transformMatrix = createMatrix4f();
-    transformMatrix = translateMatrix(transformMatrix, 0, 0, 0);
+    transformMatrix = translateMatrix(transformMatrix, playerX, 0, playerZ);
     transformMatrix = scaleMatrix(transformMatrix, 2, 2, 2);
     transformMatrix = rotateMatrix(transformMatrix, xRotation, yRotation, 0);
     transformMatrix = translateMatrix(transformMatrix, 0, 0, -4);
@@ -234,6 +257,38 @@ function addCube(vertices, colors, normals, x, y, z, width, height, length, colo
   quad(4, 5, 1, 0, [-1,  0,  0]); // Kubus kiri
   quad(5, 4, 7, 6, [ 0,  0, -1]); // Kubus belakang
   quad(6, 2, 1, 5, [ 0, -1,  0]); // Kubus bawah
+  
+}
+
+function addPlane(vertices, colors, normals, x, y, z, width, height, length, color){
+
+  width = width/2;
+  height = height/2;
+  length = length/2;
+
+  let cubePoints = [
+    [x - width, y + height, z + length],   // A, 0
+    [x - width, y - height, z + length],   // B, 1
+    [x + width, y - height, z + length],   // C, 2 
+    [x + width, y + height, z + length],   // D, 3
+    [x - width, y + height, z - length],   // E, 4
+    [x - width, y - height, z - length],   // F, 5
+    [x + width, y - height, z - length],   // G, 6
+    [x + width, y + height, z - length]    // H, 7 
+  ];
+
+  function quad(a, b, c, d, n) {
+    var indices = [a, b, c, c, d, a];
+    for (var i=0; i<indices.length; i++) {
+      for (var j=0; j<3; j++) {
+        vertices.push(cubePoints[indices[i]][j]);
+        colors.push(color[j]);
+        normals.push(normalize(n[j]));
+      }
+    }
+  }
+
+  quad(3, 7, 4, 0, [ 0,  1,  0]); // Kubus atas
   
 }
 
