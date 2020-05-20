@@ -108,10 +108,9 @@
 
     void main(void){
       float light = dot(vNormal, vLightDir);
-      vec3 colorAfterAmbient = vColor.xyz * vAmbientColor;
+      vec3 colorAfterAmbient = vColor.xyz * max(vAmbientColor, light);
 
       gl_FragColor = vec4(colorAfterAmbient, vColor.a);
-      gl_FragColor.rgb *= light;
     }
   </script>
 </body>
