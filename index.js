@@ -141,6 +141,8 @@ function main() {
     transformMatrix = rotateMatrix(transformMatrix, 0, 0, zRotation);
     let transformMatrixLoc = leftGL.getUniformLocation(leftShaderProgram, "uTransform");
     leftGL.uniformMatrix4fv(transformMatrixLoc, false, new Float32Array(transformMatrix));
+    let colorAmbientLoc = leftGL.getUniformLocation(leftShaderProgram, 'uAmbientColor');
+    leftGL.uniform3fv(colorAmbientLoc, [0.2, 0.2, 0.2]);
 
     transformMatrix = createMatrix4f();
     transformMatrix = translateMatrix(transformMatrix, 0, 0, 0);
@@ -149,6 +151,10 @@ function main() {
     transformMatrix = translateMatrix(transformMatrix, 0, 0, -4);
     transformMatrixLoc = rightGL.getUniformLocation(rightShaderProgram, "uTransform");
     rightGL.uniformMatrix4fv(transformMatrixLoc, false, new Float32Array(transformMatrix));
+    colorAmbientLoc = rightGL.getUniformLocation(rightShaderProgram, 'uAmbientColor');
+    rightGL.uniform3fv(colorAmbientLoc, [0.2, 0.2, 0.2]);
+
+
     leftGL.clear(leftGL.COLOR_BUFFER_BIT | leftGL.DEPTH_BUFFER_BIT);
     leftGL.drawArrays(leftGL.TRIANGLES, 0, colors.length/3);
 		rightGL.clear(rightGL.COLOR_BUFFER_BIT | rightGL.DEPTH_BUFFER_BIT);
