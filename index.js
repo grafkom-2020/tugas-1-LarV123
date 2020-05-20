@@ -116,20 +116,20 @@ function main() {
 			resized = false;
     }
     
-    zRotation -= 0.5;
-    if(zRotation >= 360){
-      zRotation -= 360;
-    }
+    // zRotation -= 0.5;
+    // if(zRotation >= 360){
+    //   zRotation -= 360;
+    // }
 
-    yRotation += 0.75;
-    if(yRotation >= 360){
-      yRotation -= 360;
-    }
+    // yRotation += 0.75;
+    // if(yRotation >= 360){
+    //   yRotation -= 360;
+    // }
 
-    xRotation += 0.25;
-    if(xRotation >= 360){
-      xRotation -= 360;
-    }
+    // xRotation += 0.25;
+    // if(xRotation >= 360){
+    //   xRotation -= 360;
+    // }
 
     let transformMatrix = createMatrix4f();
     transformMatrix = translateMatrix(transformMatrix, 0, -0.3, 0);
